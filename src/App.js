@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import RoomBox from './components/RoomBox/RoomBox';
 import Header from './components/Header/Header';
 import Rooms from './components/Rooms/Rooms';
@@ -8,7 +7,12 @@ import { connect } from 'react-redux';
 import { receivedAppts, } from './actions/actions';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
+import logo from './logo.svg';
+import './App.css';
+
+
 class App extends Component {
+
   render() {
     const { ui } =  this.props;
 
