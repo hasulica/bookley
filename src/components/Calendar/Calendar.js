@@ -54,12 +54,13 @@ class Calendar extends Component {
 
   render() {
 
-    const { roomLabel, currentDate } = this.props
+    const { roomLabel, currentDate, appointments } = this.props
     const { slotInfo } = this.state
-
+    
+    console.log(currentDate);
 
     return <div className="RoomBox">
-          <BigCalendar events={events} startAccessor="start" endAccessor="end" selectable={true} defaultView="day" onSelectSlot={(slotInfo) => this.openModal(slotInfo)} views={["day"]} min={new Date(2018, 2, 23, 8, 0, 0)} max={new Date(2018, 2, 23, 18, 0, 0)} defaultDate={currentDate} dayPropGetter={this.customDayPropGetter} eventPropGetter={this.customEventPropGetter} slotPropGetter={this.customSlotPropGetter} components={{ event: Event }} />
+          <BigCalendar events={appointments} startAccessor="start" endAccessor="end" selectable={true} defaultView="day" onSelectSlot={(slotInfo) => this.openModal(slotInfo)} views={["day"]} min={new Date(2018, 2, 23, 8, 0, 0)} max={new Date(2018, 2, 23, 18, 0, 0)} dafaultDate={new Date()} date={currentDate} dayPropGetter={this.customDayPropGetter} eventPropGetter={this.customEventPropGetter} slotPropGetter={this.customSlotPropGetter} components={{ event: Event }} />
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} contentLabel="Example Modal">
           <button onClick={this.closeModal}>X</button>
           <span>{roomLabel + " Room Booking"}</span>
