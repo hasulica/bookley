@@ -3,8 +3,9 @@ import RoomBox from './components/RoomBox/RoomBox';
 import Header from './components/Header/Header';
 import Booking from './components/Booking/Booking';
 import { connect } from 'react-redux';
-import { receivedAppts } from './actions/actions';
+import { receivedAppointment } from './actions/actions';
 import { makeRoomActive }  from './actions/rooms.actions';
+import { selectDate }  from './actions/ui.actions';
 
 import logo from './logo.svg';
 import './App.css';
@@ -16,19 +17,22 @@ class App extends Component {
     this.props.makeRoomActive(id);
   }
   renderRooms = () => {
-    const { rooms } = this.props.rooms;
+    const { rooms: { rooms }, ui: { currentDate } } = this.props;
     console.log(this.props)
     return rooms.map((room, index) => (
-      <RoomBox onClick={this.handleClick} key={index} {...room} />
+      <RoomBox
+        currentDate={currentDate}
+        onClick={this.handleClick}
+        key={index}
+        {...room}
+      />
     ));
   }
 
   render() {
-    const { ui } =  this.props;
-
     return (
       <div className="App">
-        <Header />
+        <Header onDateSelection={this.props.handleDateSelection}/>
         {this.renderRooms()}
       </div>
     );
@@ -43,8 +47,9 @@ const mapStateToProps = ({ ui, rooms }) => { //grabs from the store and makes av
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  receivedAppts: (data) => dispatch(receivedAppts(data)),
+  receivedAppointment: (data) => dispatch(receivedAppointment(data)),
   makeRoomActive: (id) => dispatch(makeRoomActive(id)),
+  handleDateSelection: (date) => dispatch(selectDate(date))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

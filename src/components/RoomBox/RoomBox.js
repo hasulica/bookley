@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Calendar from '../Calendar/Calendar';
 
 export default ({
-  id, label, backgroundImage, isActive, appointments, onClick
+  id, label, backgroundImage, isActive, appointments, onClick, currentDate
 }) => {
   const click = (e) => {
     e.preventDefault();

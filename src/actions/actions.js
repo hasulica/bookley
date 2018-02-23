@@ -1,2 +1,2 @@
 export * from './ui.actions'
-export * from './calendar.actions'
+export * from './rooms.actions'
