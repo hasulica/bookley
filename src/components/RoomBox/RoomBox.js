@@ -3,11 +3,15 @@ import React, { Component } from 'react';
 import Calendar from '../Calendar/Calendar';
 
 export default ({
-  id, label, backgroundImage, isActive, appointments, onClick, currentDate
+  id, label, backgroundImage, isActive, appointments, onClick, currentDate, handleReceivedAppointment
 }) => {
   const click = (e) => {
     e.preventDefault();
     onClick(id)
+  };
+
+  const handleNewAppointment = (appointment) => {
+    handleReceivedAppointment(id, appointment)
   };
   
   return (

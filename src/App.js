@@ -12,17 +12,17 @@ import './App.css';
 
 
 class App extends Component {
-
   handleClick = (id) => {
     this.props.makeRoomActive(id);
   }
+
   renderRooms = () => {
     const { rooms: { rooms }, ui: { currentDate } } = this.props;
-    console.log(this.props)
     return rooms.map((room, index) => (
       <RoomBox
         currentDate={currentDate}
         onClick={this.handleClick}
+        onDateChance={this.props.handleReceivedAppointment}
         key={index}
         {...room}
       />
@@ -49,7 +49,8 @@ const mapStateToProps = ({ ui, rooms }) => { //grabs from the store and makes av
 const mapDispatchToProps = (dispatch) => ({
   receivedAppointment: (data) => dispatch(receivedAppointment(data)),
   makeRoomActive: (id) => dispatch(makeRoomActive(id)),
-  handleDateSelection: (date) => dispatch(selectDate(date))
+  handleDateSelection: (date) => dispatch(selectDate(date)),
+  handleReceivedAppointment: (roomId, dateObj) => dispatch(receivedAppointment(roomId, dateObj)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -40,6 +40,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case RECEIVED_APPOINTMENT:
+    
       return {
         ...state,
         ...action.payload,

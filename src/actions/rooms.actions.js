@@ -2,9 +2,12 @@ export const RECEIVED_APPOINTMENT = 'RECEIVED_APPOINTMENT'
 export const DELETE_APPOINTMENT = 'DELETE_APPOINTMENT'
 export const UPDATE_ROOM = 'UPDATE_ROOM'
 
-export const receivedAppointment = (appointment) => ({
+export const receivedAppointment = (roomId, appointment) => ({
   type: RECEIVED_APPOINTMENT,
-  payload: appointment,
+  payload: {
+    roomId,
+    appointment
+  }
 });
 
 export const deletedAppointment = (id) => ({
