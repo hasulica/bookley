@@ -14,7 +14,6 @@ class App extends Component {
   }
   renderRooms = () => {
     const { rooms } = this.props.rooms;
-    console.log(rooms)
     return rooms.map((room, index) => (
       <RoomBox onClick={this.handleClick} key={index} {...room} />
     ));
