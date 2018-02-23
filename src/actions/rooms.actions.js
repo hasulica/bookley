@@ -1,8 +1,15 @@
-export const RECEIVED_APPTS = 'RECEIVED_APPTS'
+export const RECEIVED_APPOINTMENT = 'RECEIVED_APPOINTMENT'
+export const DELETE_APPOINTMENT = 'DELETE_APPOINTMENT'
 
-export function receivedAppts(appts) {
+export function receivedAppointment(appointment) {
   return {
-    type: RECEIVED_APPTS,
-    payload: appts,
+    type: RECEIVED_APPOINTMENT,
+    payload: appointment,
+  }
+}
+export function deletedAppointment(id) {
+  return {
+    type: DELETE_APPOINTMENT,
+    payload: id,
   }
 }
