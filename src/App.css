@@ -1,6 +1,9 @@
 .App {
   text-align: center; }
 
+.App-header {
+  margin-bottom: 20px; }
+
 .App-logo {
   height: 80px; }
 
@@ -23,10 +26,10 @@
       width: 50%; }
 
 .RoomBox-image-container {
-  position: relative; }
+  position: relative;
+  margin-bottom: 20px; }
   .RoomBox-image-container .RoomBox-image {
     cursor: pointer;
-    margin-top: 20px;
     margin-bottom: 20px;
     max-width: 100%; }
   .RoomBox-image-container .RoomBox-image-label {
@@ -34,6 +37,13 @@
     bottom: 30px;
     right: 50px;
     color: white; }
+
+.RoomBox-bar {
+  width: 98%;
+  height: 35px;
+  position: absolute;
+  bottom: 0;
+  left: 1%; }
 
 .slot-style {
   height: 40px;
@@ -76,6 +86,50 @@
   font-size: 9pt;
   color: gray;
   margin-bottom: 10px; }
+
+.RoomBox-Calendar .rbc-toolbar {
+  display: none; }
+
+.ReactModal__Overlay {
+  background-color: #D3D4DF; }
+
+.ReactModal__Content {
+  position: relative;
+  padding: 60px 40px; }
+  .ReactModal__Content .booking-details-name {
+    color: #AFAFAF;
+    margin: 30px 0; }
+  .ReactModal__Content input {
+    padding: 0 0 40px;
+    width: 80%;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #25265E; }
+    .ReactModal__Content input::placeholder {
+      color: #DFDFE4; }
+    .ReactModal__Content input:focus {
+      outline: none; }
+  .ReactModal__Content .booking-back-icon {
+    height: 20px;
+    cursor: pointer; }
+  .ReactModal__Content .booking-details-time {
+    color: #787993;
+    margin-bottom: 30px; }
+  .ReactModal__Content .booking-details-text {
+    color: #787993; }
+  .ReactModal__Content .booking-confirm-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 14px;
+    background-color: #FF376D;
+    color: white;
+    border: none;
+    cursor: pointer; }
 
 body {
   font-family: 'Helvetica'; }

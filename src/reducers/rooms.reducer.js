@@ -118,15 +118,19 @@ const initialState = {
     start: new Date(2018, 3, 20, 19, 30, 0),
     end: new Date(2018, 3, 22, 2, 0, 0)
   }],
+      label: 'Ayleysbury (née MR1) Room',
+      appointments: [],
       isActive: false,
       backgroundImage: 'ayleysbury.jpg',
+      barImage: 'bar2.png',
     },
     {
       id: 'haywards',
-      label: 'Haywards(mr2)',
+      label: 'Hayward’s (née MR2) Room',
       appointments: [],
       isActive: false,
       backgroundImage: 'haywards.jpg',
+      barImage: 'bar.png',
     },
     {
       id: 'sheep',
@@ -134,6 +138,7 @@ const initialState = {
       appointments: [],
       isActive: false,
       backgroundImage: 'sheep.jpg',
+      barImage: 'bar2.png',
     },
     {
       id: 'kitchen',
@@ -141,6 +146,7 @@ const initialState = {
       appointments: [],
       isActive: false,
       backgroundImage: 'kitchen.jpg',
+      barImage: 'bar.png',
     },
   ]
 }

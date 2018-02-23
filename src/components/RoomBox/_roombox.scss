@@ -25,10 +25,10 @@
   
   .RoomBox-image-container {
     position: relative;
+    margin-bottom: 20px;
 
     .RoomBox-image {
         cursor: pointer;
-        margin-top: 20px;
         margin-bottom: 20px;
         max-width: 100%;
       }
@@ -40,6 +40,15 @@
         color: white;
       }
   }
+
+  .RoomBox-bar {
+    width: 98%;
+    height: 35px;
+    position: absolute;
+    bottom: 0;
+    left: 1%;
+  }
+
 .slot-style {
   height: 40px;
   background-color: white;
