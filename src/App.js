@@ -22,7 +22,7 @@ class App extends Component {
       <RoomBox
         currentDate={currentDate}
         onClick={this.handleClick}
-        onDateChance={this.props.handleReceivedAppointment}
+        onDateChange={this.props.handleReceivedAppointment}
         key={index}
         {...room}
       />

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Calendar from '../Calendar/Calendar';
 
 export default ({
-  id, label, backgroundImage, isActive, appointments, onClick, currentDate, handleReceivedAppointment
+  id, label, backgroundImage, isActive, appointments, onClick, currentDate, onDateChange
 }) => {
   const click = (e) => {
     e.preventDefault();
@@ -11,7 +11,7 @@ export default ({
   };
 
   const handleNewAppointment = (appointment) => {
-    handleReceivedAppointment(id, appointment)
+    onDateChange(id, appointment)
   };
   
   return (
@@ -20,7 +20,7 @@ export default ({
       <img onClick={click} src={`./${backgroundImage}`} className="RoomBox-image" />
       <p className="RoomBox-image-label">{label}</p>
           { isActive && (
-      <Calendar currentDate={currentDate.toDate()} roomLabel={label} appointments={appointments}/>
+      <Calendar currentDate={currentDate.toDate()} roomLabel={label} appointments={appointments} handleNewAppointment={handleNewAppointment} />
     )}
     </div>
     

@@ -148,18 +148,27 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case RECEIVED_APPOINTMENT:
-    
+
       return {
         ...state,
-        ...action.payload,
-      }
+        rooms: state.rooms.map(room => {
+          console.log(room)
+          console.log(action.payload)
+          if (room.id === action.payload.roomId) {
+            console.log('found one')
+            room.appointments.push(action.payload.appointment)
+          }
+          return room;
+        })
+      };
+      break
     case DELETE_APPOINTMENT:
       return {
         ...state,
         ...action.payload,
       }
     case UPDATE_ROOM:
-    const { rooms } = state;
+      const { rooms } = state;
       rooms.map(room => {
         if (room.id === action.payload) {
           if (room.isActive) {
@@ -172,8 +181,7 @@ export default (state = initialState, action) => {
         }
       })
       return {
-        ...state,
-        ...action.payload,
+        ...state
       }
 
     default:
