@@ -9,7 +9,7 @@ class RoomBox extends Component {
         <p className="RoomBox-image-label">Sheep Room</p>
       </div>
     )
-  }
+  } 
 }
 
 export default RoomBox;
