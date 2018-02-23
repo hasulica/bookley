@@ -51,10 +51,13 @@ export default (state = initialState, action) => {
       }
     case UPDATE_ROOM:
     const { rooms } = state;
-      console.log(rooms)
       rooms.map(room => {
         if (room.id === action.payload) {
-          room.isActive = true;
+          if (room.isActive) {
+            room.isActive = false;
+          } else {
+            room.isActive = true;
+          }
         } else {
           room.isActive = false;
         }
