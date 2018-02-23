@@ -25,18 +25,12 @@ class Calendar extends Component {
     };
 
     this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
 
   openModal(slotInfo) {
     this.setState({ modalIsOpen: true, slotInfo: slotInfo});
     console.log(this.state.slotInfo);
-  }
-
-  afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    this.subtitle.style.color = "#f00";
   }
 
   closeModal() {
@@ -59,18 +53,24 @@ class Calendar extends Component {
 
 
   render() {
+
+    const { roomLabel, currentDate } = this.props
+    const { slotInfo } = this.state
+
+
     return <div className="RoomBox">
-        <div className="RoomBox-image-container col-xs-12, col-md-6 col-lg-4">
-          <img src={this.props.imageSrc} className="RoomBox-image" />
-          <p className="RoomBox-image-label">{this.props.label}</p>
-          <BigCalendar events={events} startAccessor="start" endAccessor="end" selectable={true} defaultView="day" onSelectSlot={(slotInfo) => this.openModal(slotInfo)} views={["day"]} min={new Date(2018, 2, 23, 8, 0, 0)} max={new Date(2018, 2, 23, 18, 0, 0)} defaultDate={this.props.currentDate} dayPropGetter={this.customDayPropGetter} eventPropGetter={this.customEventPropGetter} slotPropGetter={this.customSlotPropGetter} components={{ event: Event }} />
-        </div>
+          <BigCalendar events={events} startAccessor="start" endAccessor="end" selectable={true} defaultView="day" onSelectSlot={(slotInfo) => this.openModal(slotInfo)} views={["day"]} min={new Date(2018, 2, 23, 8, 0, 0)} max={new Date(2018, 2, 23, 18, 0, 0)} defaultDate={currentDate} dayPropGetter={this.customDayPropGetter} eventPropGetter={this.customEventPropGetter} slotPropGetter={this.customSlotPropGetter} components={{ event: Event }} />
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} contentLabel="Example Modal">
-          <h2 ref={subtitle => (this.subtitle = subtitle)}>Hello</h2>
-          <button onClick={this.closeModal}>close</button>
-          <div>{this.state.slotInfo.action}</div>
+          <button onClick={this.closeModal}>X</button>
+          <span>{roomLabel + " Room Booking"}</span>
+          <span>{moment(new Date(slotInfo.start)).format("Do MMM h:mm") + " to " + moment(new Date(slotInfo.start)).format("Do MMM h:mm")}</span>
           <form>
+            <span>Title</span>
             <input />
+            <span>Description</span>
+            <input />
+            <button>Cancel</button>
+            <button>Confirm</button>
           </form>
         </Modal>
       </div>;
