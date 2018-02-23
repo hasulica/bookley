@@ -14,17 +14,17 @@ class RoomBox extends Component {
           <label htmlFor="roomboxPickDate" className="RoomBox-tab-label col-xs-4">PICK DATE</label>
         </div>
         <div className="row">
-          <div className="RoomBox-image-container col-xs-12">
+          <div className="RoomBox-image-container col-xs-12, col-md-6 col-lg-4">
             <img src={logo} className="RoomBox-image" />
             <p className="RoomBox-image-label">Sheep Room</p>
           </div>
 
-          <div className="RoomBox-image-container col-xs-12">
+          <div className="RoomBox-image-container col-xs-12 col-md-6 col-lg-4">
             <img src={logo} className="RoomBox-image" />
             <p className="RoomBox-image-label">Aylesbury (nee MR1)</p>
           </div>
 
-          <div className="RoomBox-image-container col-xs-12">
+          <div className="RoomBox-image-container col-xs-12 col-md-6 col-lg-4">
             <img src={logo} className="RoomBox-image" />
             <p className="RoomBox-image-label">Hayward's (nee MR2)</p>
           </div>
