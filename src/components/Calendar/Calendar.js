@@ -11,7 +11,7 @@ BigCalendar.momentLocalizer(moment);
 function Event({ event }) {
   return <span>
     <div className="event-title">{event.title}</div>
-    <div className="event-author">{event.author}</div>
+    <div className="event-author">{event.desc}</div>
   </span>;
 }
 
@@ -55,11 +55,12 @@ class Calendar extends Component {
     e.preventDefault();
     const appointment = {
       title: this.state.title,
-      description: this.state.description,
+      desc: this.state.description,
       start: new Date(this.state.slotInfo.start),
       end: new Date(this.state.slotInfo.end)
     }
     this.props.handleNewAppointment(appointment);
+    this.closeModal();
   }
 
   handleInputChange = (target) => (e) => {
