@@ -1,0 +1,38 @@
+.RoomBox-tab {
+    display: none;
+
+    + label {
+        padding: 20px;
+        color: #AFAFAF;
+    }
+
+    &:checked + label {
+        color: #FF1654;
+        position: relative;
+
+        &:after {
+            content: '';
+            background-color: #FF1654;
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            height: 5px;
+            width: 50%;
+        }
+    }
+  }
+  
+  .RoomBox-image-container {
+    position: relative;
+
+    .RoomBox-image {
+        margin: 20px 0;
+      }
+      
+      .RoomBox-image-label {
+        position: absolute;
+        bottom: 30px;
+        right: 50px;
+        color: white;
+      }
+  }

@@ -22,3 +22,30 @@
     transform: rotate(0deg); }
   to {
     transform: rotate(360deg); } }
+
+.RoomBox-tab {
+  display: none; }
+  .RoomBox-tab + label {
+    padding: 20px;
+    color: #AFAFAF; }
+  .RoomBox-tab:checked + label {
+    color: #FF1654;
+    position: relative; }
+    .RoomBox-tab:checked + label:after {
+      content: '';
+      background-color: #FF1654;
+      position: absolute;
+      bottom: 0;
+      left: 25%;
+      height: 5px;
+      width: 50%; }
+
+.RoomBox-image-container {
+  position: relative; }
+  .RoomBox-image-container .RoomBox-image {
+    margin: 20px 0; }
+  .RoomBox-image-container .RoomBox-image-label {
+    position: absolute;
+    bottom: 30px;
+    right: 50px;
+    color: white; }
