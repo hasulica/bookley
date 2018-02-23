@@ -16,7 +16,7 @@ export default ({
       <img onClick={click} src={`./${backgroundImage}`} className="RoomBox-image" />
       <p className="RoomBox-image-label">{label}</p>
           { isActive && (
-      <Calendar currentDate={new Date()} roomLabel={label}/>
+      <Calendar currentDate={new Date()} roomLabel={label} appointments={appointments}/>
     )}
     </div>
     
