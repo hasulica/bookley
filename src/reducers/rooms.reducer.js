@@ -3,25 +3,25 @@ import { RECEIVED_APPOINTMENT, DELETE_APPOINTMENT } from '../actions/rooms.actio
 const initialState = {
   rooms: [
     {
-      name: 'Ayleysbury(mr1)',
+      label: 'Ayleysbury(mr1)',
       appointments: [],
       isActive: false,
-      backgroundImage: 'aylesbury',
+      backgroundImage: 'ayleysbury.jpg',
     },
     {
-      name: 'Haywards(mr2)',
+      label: 'Haywards(mr2)',
       appointments: [],
       isActive: false,
-      backgroundImage: 'haywards',
+      backgroundImage: 'haywards.jpg',
     },
     {
-      name: 'Sheep',
+      label: 'Sheep',
       appointments: [],
       isActive: false,
       backgroundImage: 'sheep',
     },
     {
-      name: 'Kitchen',
+      label: 'Kitchen',
       appointments: [],
       isActive: false,
       backgroundImage: 'kitchen',
