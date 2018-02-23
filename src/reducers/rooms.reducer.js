@@ -25,14 +25,14 @@ const initialState = {
       label: 'Sheep',
       appointments: [],
       isActive: false,
-      backgroundImage: 'sheep',
+      backgroundImage: 'sheep.jpg',
     },
     {
       id: 'kitchen',
       label: 'Kitchen',
       appointments: [],
       isActive: false,
-      backgroundImage: 'kitchen',
+      backgroundImage: 'kitchen.jpg',
     },
   ]
 }
