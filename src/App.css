@@ -24,7 +24,9 @@
 .RoomBox-image-container {
   position: relative; }
   .RoomBox-image-container .RoomBox-image {
-    margin: 20px 0; }
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 100%; }
   .RoomBox-image-container .RoomBox-image-label {
     position: absolute;
     bottom: 30px;

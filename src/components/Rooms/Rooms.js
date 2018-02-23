@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import RoomBox from '../RoomBox/RoomBox';
+import image from '../../room.jpg';
 
 class Room extends Component {
   render(props) {
-    console.log(this.props)
     return(
       <div className="room">
-        ROOM
+        <RoomBox imageSrc={image} label="Sheep Room"/>
+        <RoomBox imageSrc={image} label="Sheep Room" />
+        <RoomBox imageSrc={image} label="Sheep Room" />
       </div>
     )
   }

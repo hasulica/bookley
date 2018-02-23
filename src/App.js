@@ -15,8 +15,6 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <RoomBox />
-        <Link to={`/booking`}>Go Booking</Link>
         <Router>
           <div>
             <Route exact path="/" component={Rooms} />
@@ -28,10 +26,10 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ ui, rooms }) => { //grabs from the store and makes available as props
+const mapStateToProps = ({ ui, calendar }) => { //grabs from the store and makes available as props
   return {
     ui,
-    rooms,
+    calendar,
   }
 }
 
