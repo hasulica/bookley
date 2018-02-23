@@ -28,10 +28,10 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ ui, calendar }) => { //grabs from the store and makes available as props
+const mapStateToProps = ({ ui, rooms }) => { //grabs from the store and makes available as props
   return {
     ui,
-    calendar,
+    rooms,
   }
 }
 
