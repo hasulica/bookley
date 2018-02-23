@@ -4,6 +4,7 @@
     + label {
         padding: 20px;
         color: #AFAFAF;
+        cursor: pointer;
     }
 
     &:checked + label {
@@ -26,6 +27,7 @@
     position: relative;
 
     .RoomBox-image {
+        cursor: pointer;
         margin-top: 20px;
         margin-bottom: 20px;
         max-width: 100%;

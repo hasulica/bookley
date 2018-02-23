@@ -5,7 +5,6 @@ import Booking from './components/Booking/Booking';
 import { connect } from 'react-redux';
 import { receivedAppts } from './actions/actions';
 import { makeRoomActive }  from './actions/rooms.actions';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import logo from './logo.svg';
 import './App.css';

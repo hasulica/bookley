@@ -8,7 +8,8 @@
   display: none; }
   .RoomBox-tab + label {
     padding: 20px;
-    color: #AFAFAF; }
+    color: #AFAFAF;
+    cursor: pointer; }
   .RoomBox-tab:checked + label {
     color: #FF1654;
     position: relative; }
@@ -24,6 +25,7 @@
 .RoomBox-image-container {
   position: relative; }
   .RoomBox-image-container .RoomBox-image {
+    cursor: pointer;
     margin-top: 20px;
     margin-bottom: 20px;
     max-width: 100%; }
