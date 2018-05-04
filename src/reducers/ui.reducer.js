@@ -1,20 +1,16 @@
 import moment from 'moment';
+import { handleActions } from 'redux-actions';
 import { SELECT_DATE } from '../actions/ui.actions'
 
 const initialState = {
   currentDate: moment(new Date())
 }
-export default (state = initialState, action) => {
-  switch (action.type) {
-    case SELECT_DATE:
-      return {
+
+const reducer = {
+    [SELECT_DATE]: (state, action) => ({
         ...state,
         ...action.payload,
-      }
-    default:
-      return {
-        ...state,
-      }
-  }
-
+    })
 }
+
+export default handleActions(reducer, initialState);
