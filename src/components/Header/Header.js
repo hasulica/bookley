@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import moment from 'moment';
-import { connect } from 'react-redux';
 import logo from '../../Brand.png';
 
 export default (props) => {
   const handleDateSelection = (e) => {
-    e.preventDefault;
+    // e.preventDefault;
     const value = e.target.value;
     if (value === 'today') {
       const today = moment(new Date());

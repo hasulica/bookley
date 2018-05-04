@@ -1,20 +1,19 @@
-
-import React, { Component } from 'react'
-import logo from '../../room.jpg';
-import backImg from '../../back.png';
-import BigCalendar from 'react-big-calendar';
-import moment from 'moment';
-import './../../../node_modules/react-big-calendar/lib/css/react-big-calendar.css';
-import events from '../../events';
-import Modal from 'react-modal';
+import React, { Component } from "react";
+import backImg from "../../back.png";
+import BigCalendar from "react-big-calendar";
+import moment from "moment";
+import "./../../../node_modules/react-big-calendar/lib/css/react-big-calendar.css";
+import Modal from "react-modal";
 
 BigCalendar.momentLocalizer(moment);
 
 function Event({ event }) {
-  return <span>
-    <div className="event-title">{event.title}</div>
-    <div className="event-author">{event.desc}</div>
-  </span>;
+  return (
+    <span>
+      <div className="event-title">{event.title}</div>
+      <div className="event-author">{event.desc}</div>
+    </span>
+  );
 }
 
 class Calendar extends Component {
@@ -53,48 +52,88 @@ class Calendar extends Component {
     return { className: "slot-style" };
   };
 
-  handleSubmission = (e) => {
+  handleSubmission = e => {
     e.preventDefault();
     const appointment = {
       title: this.state.title,
       desc: this.state.description,
       start: new Date(this.state.slotInfo.start),
       end: new Date(this.state.slotInfo.end)
-    }
+    };
     this.props.handleNewAppointment(appointment);
     this.closeModal();
-  }
+  };
 
-  handleInputChange = (target) => (e) => {
+  handleInputChange = target => e => {
     e.preventDefault();
-    this.setState({
-      [target]: e.target.value
-    });
-  }
+    this.setState({ [target]: e.target.value });
+  };
 
   render() {
-    const { roomLabel, currentDate, appointments } = this.props
-    const { slotInfo } = this.state
+    const { roomLabel, currentDate, appointments } = this.props;
+    const { slotInfo } = this.state;
 
-    return <div className="RoomBox-Calendar">
-           <BigCalendar
-           events={appointments}startAccessor="start"endAccessor="end"selectable={true}defaultView="day"onSelectSlot={(slotInfo) => this.openModal(slotInfo)} views={["day"]} min={new Date(2018, 2, 23, 8, 0, 0)} max={new Date(2018, 2, 23, 18, 0, 0)} dafaultDate={new Date()} date={currentDate} dayPropGetter={this.customDayPropGetter} eventPropGetter={this.customEventPropGetter} slotPropGetter={this.customSlotPropGetter} components={{ event: Event }} />
-             <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} contentLabel="Example Modal">
-          <img className="booking-back-icon" src={backImg} onClick={this.closeModal} />
-          <h4 className="booking-details-name">{roomLabel + " Room Booking"}</h4>
-          <p className="booking-details-time">{moment(new Date(slotInfo.start)).format("Do MMM h:mm") + " to " + moment(new Date(slotInfo.start)).format("Do MMM h:mm")}</p>
+    return (
+      <div className="RoomBox-Calendar">
+        <BigCalendar
+          events={appointments}
+          startAccessor="start"
+          endAccessor="end"
+          selectable={true}
+          defaultView="day"
+          onSelectSlot={slotInfo => this.openModal(slotInfo)}
+          views={["day"]}
+          min={new Date(2018, 2, 23, 8, 0, 0)}
+          max={new Date(2018, 2, 23, 18, 0, 0)}
+          dafaultDate={new Date()}
+          date={currentDate}
+          dayPropGetter={this.customDayPropGetter}
+          eventPropGetter={this.customEventPropGetter}
+          slotPropGetter={this.customSlotPropGetter}
+          components={{ event: Event }}
+        />
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
+          contentLabel="Example Modal"
+        >
+          <img
+            className="booking-back-icon"
+            src={backImg}
+            alt={roomLabel}
+            onClick={this.closeModal}
+          />
+          <h4 className="booking-details-name">
+            {roomLabel + " Room Booking"}
+          </h4>
+          <p className="booking-details-time">
+            {moment(new Date(slotInfo.start)).format("Do MMM h:mm") + " to " + moment(new Date(slotInfo.start)).format("Do MMM h:mm")}
+          </p>
           <form>
             <p class="booking-details-text">Name</p>
-            <input type="text" placeholder="Your name" onChange={this.handleInputChange('title')} />
+            <input
+              type="text"
+              placeholder="Your name"
+              onChange={this.handleInputChange("title")}
+            />
             <p class="booking-details-text">Meeting Description</p>
-            <input type="text" placeholder="Short description..." onChange={this.handleInputChange('description')}/>
-            <button className="booking-confirm-button" onClick={this.handleSubmission}>Schedule Meeting</button>
+            <input
+              type="text"
+              placeholder="Short description..."
+              onChange={this.handleInputChange("description")}
+            />
+            <button
+              className="booking-confirm-button"
+              onClick={this.handleSubmission}
+            >
+              Schedule Meeting
+            </button>
           </form>
         </Modal>
-      </div>;
-
+      </div>
+    );
   }
 }
-
 
 export default Calendar;

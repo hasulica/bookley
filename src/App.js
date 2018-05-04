@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import RoomBox from './components/RoomBox/RoomBox';
 import Header from './components/Header/Header';
-import Booking from './components/Booking/Booking';
 import { connect } from 'react-redux';
-import { receivedAppointment } from './actions/actions';
-import { makeRoomActive }  from './actions/rooms.actions';
+import { makeRoomActive, receivedAppointment }  from './actions/rooms.actions';
 import { selectDate }  from './actions/ui.actions';
-
-import logo from './logo.svg';
 import './App.css';
 
 
@@ -39,12 +35,10 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ ui, rooms }) => { //grabs from the store and makes available as props
-  return {
+const mapStateToProps = ({ ui, rooms }) => ({
     ui,
     rooms,
-  }
-}
+});
 
 const mapDispatchToProps = (dispatch) => ({
   receivedAppointment: (data) => dispatch(receivedAppointment(data)),
